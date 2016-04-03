@@ -1,16 +1,20 @@
-
 Jeden rok notowań to około 248dni
 
 [Do zrobienia]:
 Zbadać korelację pomiędzy różnymi walorami.
 Linie powinny na przemian mieć różne odcienie tła.
+Obsłużyć wyjątkiem sytuację gdy brak jest pliku z danymi.
+Obsłużyć sytuację gdy brak jest katalogu dane.
 
 [Pomysły]:
 Dobrze by było znaleźć jakąś uniwersalną wartość w której można wyceniać walory coś co nie ulega inflacji.
 Obraz wyświetlany zapamiętywać jako string by nie trzeba było go wyliczać za każdym razem.
 Sprawdzić czy w cenach jest jakaś okresowa prawidłowość. Na osi o długości 1 roku wyświetlić ceny z wielu lat. Mogą być np średnie tygodniowe.
-
+W konfiguracji ma znajdować się nazwa aktywu, link do jego notowań, poziom minimalny i maksymalny po przekroczeniu którego cena zapala się na inny kolor lub pojawia się informacja.
+Jeśli chcę zobaczyć więcej wyliczonych parametrów danego aktywa wciskam na klawiaturze ID linii + ENTER. Ale to dopiero gdy w linii nie będę miał gdzie cisnąć danych.
 Zrobić dwuneuronowe robaczki. Jeden neuron uczy się kupować drugi sprzedawać. I wyewoluować najlepszych graczy.
+Parametr pokazujący ile próbek miało większą wartość od średniej przez ilość wszystkich próbek.
+Albo może lepiej policzyć całkę nad średnią i podzielić przez całkę nad i pod średnią.
 
 [Wskaźniki/Funkcje]:
 Przez jaki okres procentowo cena była niższa lub wyższa cenie aktualnej, poczynając od podanej daty początkowej?
@@ -20,24 +24,8 @@ Jak dawno temu w latach miesiącach dniach ceny były takie lub niższe.
 [Pytania]
 Jak wymusić czy sprawdzać czy zmienna wejściowa jest właściwego typu.
 
----------------------------------------------
-W pliku tekstowym ma znajdować się nazwa aktywa, link do jego notowań, poziom minimalny i maksymalny po przekroczeniu którego cena zapala się na inny kolor lub pojawia się informacja.
-
-Zanim napiszę funkcję wyliczającą jakiś wskaźnik najpierw zbadać go w arkuszu kalkulacyjnym.
-
-Jeśli chcę zobaczyć więcej wyliczonych parametrów danego aktywa wciskam na klawiaturze ID linii + ENTER. Ale to dopiero gdy w linii nie będę miał gdzie cisnąć danych.
-
 [Pomysły na funkcje:]
-Odchylenie standardowe.
 Ile procent próbek ma cenę niższą niż podana.
-
-W konfiguracji ma znajdować się nazwa aktywu, link do jego notowań, poziom minimalny i maksymalny po przekroczeniu którego cena zapala się na inny kolor lub pojawia się informacja.
-
 Nieświadomie zaimplementowałem funkcję współczynnik zmienności czyli (odchylenie standardowe)/(średnia arytmetyczna)
 Może lepiej korzystać ze średniego odchylenia bezwzględnego podzielonego przez średnią arytmetyczną?
 
-Obsłużyć wyjątkiem sytuację gdy brak jest pliku z danymi.
-
-Pomysł:
-Parametr pokazujący ile próbek miało większą wartość od średniej przez ilość wszystkich próbek.
-Albo może lepiej policzyć całkę nad średnią i podzielić przez całkę nad i pod średnią.
