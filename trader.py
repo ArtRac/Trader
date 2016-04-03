@@ -110,27 +110,38 @@ class Presenter:
         self.indexes = indexes
 
     def showMain(self):
-        print('\033[1;47;30m{:^10}\t{:^10}{:^8}{:^9}{:^9}{:^9}{:^9}{:^9}{:^9}{:^9}'.format('NAME','DATE','CHANGE%','CLOSE','MIN','MAX','MINTIME','MAXTIME','AVERAGE%','MEDIAN%') + W)
+        print('\033[1;47;30m',end="")
+        print('{:^10}\t'.format('NAME'),end="")
+        print('{:^10}'.format('DATE'),end="")
+        print('{:^8}'.format('CHANGE%'),end="")
+        print('{:^9}'.format('CLOSE'),end="")
+        print('{:^9}'.format('MIN'),end="")
+        print('{:^9}'.format('MAX'),end="")
+        print('{:^9}'.format('MINTIME'),end="")
+        print('{:^9}'.format('MAXTIME'),end="")
+        print('{:^9}'.format('AVERAGE%'),end="")
+        print('{:^9}'.format('MEDIAN%'),end="")
+        print(W)
+        
         for index in self.indexes:
-            line = W
-            line += '{:<10}\t{:^10}'.format(index.getName(),index.getLastValue('Data'))
-            if index.getChange('Zamkniecie') > 0: line+=G
-            elif index.getChange('Zamkniecie') < 0: line+=R
-            else: line+=W
-            line += '{:>7.2f}%'.format(index.getChange('Zamkniecie'))
+            print(W,end="")
+            print('{:<10}'.format(index.getName()),end="")
+            print('\t{:<10}'.format(index.getLastValue('Data')),end="")
+            if index.getChange('Zamkniecie') > 0: print(G,end="")
+            elif index.getChange('Zamkniecie') < 0: print(R,end="")
+            else: print(W,end="")
+            print('{:>7.2f}%'.format(index.getChange('Zamkniecie')),end="")
+            print (W,end="")
             
-            line += W + '{:>9.2f}{:>9.2f}{:>9.2f}{:>9}{:>9}{:>8.2f}%{:>8.2f}%{:>9.2f}%'.format(
-                                            index.getLastValue('Zamkniecie'),
-                                            index.getMinValue('Zamkniecie'),
-                                            index.getMaxValue('Zamkniecie'),
-                                            index.getWhenWasLess('Zamkniecie',index.getLastValue('Zamkniecie')),
-                                            index.getWhenWasMore('Zamkniecie',index.getLastValue('Zamkniecie')),
-                                            100*index.getLastValue('Zamkniecie')/index.getAverage('Zamkniecie'),
-                                            100*index.getLastValue('Zamkniecie')/index.getMedian('Zamkniecie'),
-                                            index.getStdPeriod('Zamkniecie')/index.getAverage('Zamkniecie')#współczynnik zmienności 
-                                            #index.getStd('Zamkniecie')
-                                           )
-            print(line)
+            print('{:>9.2f}'.format(index.getLastValue('Zamkniecie')),end="")
+            print('{:>9.2f}'.format(index.getMinValue('Zamkniecie')),end="")
+            print('{:>9.2f}'.format(index.getMaxValue('Zamkniecie')),end="")
+            print('{:>9}'.format(index.getWhenWasLess('Zamkniecie',index.getLastValue('Zamkniecie'))),end="")
+            print('{:>9}'.format(index.getWhenWasMore('Zamkniecie',index.getLastValue('Zamkniecie'))),end="")
+            print('{:>8.2f}%'.format(100*index.getLastValue('Zamkniecie')/index.getAverage('Zamkniecie')),end="")
+            print('{:>8.2f}%'.format(100*index.getLastValue('Zamkniecie')/index.getMedian('Zamkniecie')),end="")
+            print('{:>9.2f}%'.format(index.getStdPeriod('Zamkniecie')/index.getAverage('Zamkniecie')))
+
         print(W)
 
 class Loader:
