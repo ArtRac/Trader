@@ -141,7 +141,6 @@ class Presenter:
             print('{:>8.2f}%'.format(100*index.getLastValue('Zamkniecie')/index.getAverage('Zamkniecie')),end="")
             print('{:>8.2f}%'.format(100*index.getLastValue('Zamkniecie')/index.getMedian('Zamkniecie')),end="")
             print('{:>9.2f}%'.format(index.getStdPeriod('Zamkniecie')/index.getAverage('Zamkniecie')))
-
         print(W)
 
 class Loader:
